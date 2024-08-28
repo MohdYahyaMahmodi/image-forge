@@ -1,3 +1,13 @@
+/**
+ * Image Forge: Advanced Image Conversion Tool
+ * Author: Mohd Mahmodi
+ * License: MIT
+ *
+ * This script handles the client-side functionality of the Image Forge tool,
+ * including drag-and-drop file handling, image conversion, and UI updates.
+ */
+
+// DOM element references
 const dropArea = document.getElementById('drop-area');
 const fileInput = document.getElementById('file-input');
 const selectFilesBtn = document.getElementById('select-files');
@@ -13,48 +23,123 @@ const conversionStats = document.getElementById('conversion-stats');
 const progressSection = document.getElementById('progress-section');
 const progressBar = document.getElementById('progress-bar');
 const progressText = document.getElementById('progress-text');
+const scrollButton = document.getElementById('scroll-button');
+const scrollIcon = document.getElementById('scroll-icon');
 
-let files = [];
-let swiper;
+// Global variables
+let files = []; // Stores the uploaded image files
+let swiper; // Reference to the Swiper instance for image carousel
 
+/**
+ * Updates the scroll button's appearance based on the current scroll position
+ */
+function updateScrollButton() {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Check if we're closer to the bottom than to the top
+    if (scrollPosition + windowHeight > documentHeight - windowHeight / 2) {
+        scrollIcon.classList.add('up');
+    } else {
+        scrollIcon.classList.remove('up');
+    }
+}
+
+// Update button state on scroll
+window.addEventListener('scroll', updateScrollButton);
+
+/**
+ * Handles the scroll button click event
+ * Scrolls to top if closer to bottom, and vice versa
+ */
+scrollButton.addEventListener('click', () => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    if (scrollPosition + windowHeight > documentHeight - windowHeight / 2) {
+        // Scroll to top if we're closer to the bottom
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    } else {
+        // Scroll to bottom if we're closer to the top
+        window.scrollTo({
+            top: documentHeight,
+            behavior: 'smooth'
+        });
+    }
+});
+
+// Initial update of button state
+updateScrollButton();
+
+// Prevent default drag behaviors
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
     dropArea.addEventListener(eventName, preventDefaults, false);
     document.body.addEventListener(eventName, preventDefaults, false);
 });
 
+// Highlight drop area when item is dragged over it
 ['dragenter', 'dragover'].forEach(eventName => {
     dropArea.addEventListener(eventName, highlight, false);
 });
 
+// Remove highlight when item is dragged away or dropped
 ['dragleave', 'drop'].forEach(eventName => {
     dropArea.addEventListener(eventName, unhighlight, false);
 });
 
+// Handle dropped files
 dropArea.addEventListener('drop', handleDrop, false);
+
+// Handle selected files
 fileInput.addEventListener('change', handleFiles, false);
+
+// Trigger file selection when the button is clicked
 selectFilesBtn.addEventListener('click', () => fileInput.click());
 
+/**
+ * Prevents default events
+ * @param {Event} e - The event object
+ */
 function preventDefaults(e) {
     e.preventDefault();
     e.stopPropagation();
 }
 
+/**
+ * Adds highlight effect to drop area
+ */
 function highlight() {
     dropArea.classList.add('highlight');
     gsap.to(dropArea, { scale: 1.02, duration: 0.3, ease: "power2.out" });
 }
 
+/**
+ * Removes highlight effect from drop area
+ */
 function unhighlight() {
     dropArea.classList.remove('highlight');
     gsap.to(dropArea, { scale: 1, duration: 0.3, ease: "power2.out" });
 }
 
+/**
+ * Handles dropped files
+ * @param {DragEvent} e - The drag event object
+ */
 function handleDrop(e) {
     const dt = e.dataTransfer;
     const newFiles = [...dt.files];
     handleFiles({ target: { files: newFiles } });
 }
 
+/**
+ * Processes selected or dropped files
+ * @param {Event} e - The event object containing selected files
+ */
 function handleFiles(e) {
     files = [...e.target.files].filter(file => file.type.startsWith('image/'));
     updatePreview();
@@ -62,6 +147,9 @@ function handleFiles(e) {
     updateStats();
 }
 
+/**
+ * Updates the image preview carousel
+ */
 function updatePreview() {
     previewSection.classList.remove('hidden');
     imageCarousel.innerHTML = '';
@@ -93,43 +181,36 @@ function updatePreview() {
     gsap.from(previewSection, { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" });
 }
 
+/**
+ * Updates the file list table
+ */
 function updateFileList() {
-  fileListSection.classList.remove('hidden');
-  fileList.innerHTML = '';
+    fileListSection.classList.remove('hidden');
+    fileList.innerHTML = '';
 
-  files.forEach((file, index) => {
-      const row = document.createElement('tr');
-      row.className = index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-900';
-      
-      const truncatedFileName = truncateFileName(file.name, 8);
-      
-      row.innerHTML = `
-          <td class="px-4 py-3">
-              <img src="${URL.createObjectURL(file)}" alt="${file.name}" class="w-10 h-10 object-cover rounded">
-          </td>
-          <td class="px-4 py-3">
-              <span title="${file.name}" class="cursor-pointer hover:underline">${truncatedFileName}</span>
-          </td>
-          <td class="px-4 py-3">${formatSize(file.size)}</td>
-          <td class="px-4 py-3 new-size">-</td>
-          <td class="px-4 py-3 size-change">-</td>
-      `;
-      fileList.appendChild(row);
-      gsap.from(row, { opacity: 0, y: 20, duration: 0.5, delay: index * 0.1, ease: "power3.out" });
-  });
+    files.forEach((file, index) => {
+        const row = document.createElement('tr');
+        row.className = index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-900';
+        
+        row.innerHTML = `
+            <td class="px-4 py-3">
+                <img src="${URL.createObjectURL(file)}" alt="${file.name}" title="${file.name}" class="w-10 h-10 object-cover rounded cursor-pointer">
+            </td>
+            <td class="px-4 py-3">${formatSize(file.size)}</td>
+            <td class="px-4 py-3 new-size">-</td>
+            <td class="px-4 py-3 size-change">-</td>
+        `;
+        fileList.appendChild(row);
+        gsap.from(row, { opacity: 0, y: 20, duration: 0.5, delay: index * 0.1, ease: "power3.out" });
+    });
 
-  convertBtn.disabled = files.length === 0;
-  gsap.from(fileListSection, { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" });
+    convertBtn.disabled = files.length === 0;
+    gsap.from(fileListSection, { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" });
 }
 
-function truncateFileName(fileName, maxLength) {
-  if (fileName.length <= maxLength) return fileName;
-  const extension = fileName.split('.').pop();
-  const nameWithoutExtension = fileName.slice(0, -(extension.length + 1));
-  const truncatedName = nameWithoutExtension.slice(0, maxLength - 3) + '...';
-  return truncatedName + '.' + extension;
-}
-
+/**
+ * Updates the image statistics display
+ */
 function updateStats() {
     statsSection.classList.remove('hidden');
     imageStats.innerHTML = '';
@@ -143,58 +224,92 @@ function updateStats() {
     });
 
     const stats = [
-        { label: 'Total Files', value: files.length },
-        { label: 'Total Size', value: formatSize(totalSize) },
-        { label: 'Average Size', value: formatSize(avgSize) },
-        { label: 'Formats', value: Object.entries(formats).map(([format, count]) => `${format}: ${count}`).join(', ') },
+        { label: 'Total Files', value: files.length, icon: 'fa-images' },
+        { label: 'Total Size', value: formatSize(totalSize), icon: 'fa-database' },
+        { label: 'Average Size', value: formatSize(avgSize), icon: 'fa-balance-scale' },
+        { label: 'Formats', value: Object.entries(formats).map(([format, count]) => `${format}: ${count}`).join(', '), icon: 'fa-file-image' },
     ];
 
-    stats.forEach((stat, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `<span class="font-medium">${stat.label}:</span> ${stat.value}`;
-        imageStats.appendChild(li);
-        gsap.from(li, { opacity: 0, x: -20, duration: 0.5, delay: index * 0.1, ease: "power3.out" });
+    stats.forEach((stat) => {
+        const div = document.createElement('div');
+        div.className = 'stats-card';
+        div.innerHTML = `
+            <i class="fas ${stat.icon} stats-icon"></i>
+            <div>
+                <p class="stats-label">${stat.label}</p>
+                <p class="stats-value">${stat.value}</p>
+            </div>
+        `;
+        imageStats.appendChild(div);
+        gsap.from(div, { opacity: 0, y: 10, duration: 0.3, ease: "power3.out" });
     });
 
-    gsap.from(statsSection, { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" });
+    gsap.from(statsSection, { opacity: 0, y: 10, duration: 0.3, ease: "power3.out" });
 }
 
+/**
+ * Updates the conversion statistics display
+ * @param {number} originalSize - Total size of original files
+ * @param {Object} newStats - New statistics after conversion
+ */
 function updateConversionStats(originalSize, newStats) {
     conversionStatsSection.classList.remove('hidden');
     conversionStats.innerHTML = '';
 
     const sizeChange = ((newStats.zipSize - originalSize) / originalSize * 100).toFixed(2);
-    const arrowColor = sizeChange < 0 ? 'text-green-500' : 'text-red-500';
-    const arrowDirection = sizeChange < 0 ? '↓' : '↑';
+    const isReduction = sizeChange < 0;
+    const arrowColor = isReduction ? 'text-green-500' : 'text-red-500';
+    const arrowDirection = isReduction ? '↓' : '↑';
+    const changeDescription = isReduction ? 'Reduction' : 'Increase';
 
-    const stats = [
-        {
-            label: 'Size Comparison',
-            value: `
-                <div class="flex items-center space-x-4">
-                    <span>${formatSize(originalSize)}</span>
-                    <span class="${arrowColor} text-2xl">${arrowDirection}</span>
-                    <span>${formatSize(newStats.zipSize)}</span>
-                </div>
-            `
-        },
-        { label: 'Total Size Change', value: `${sizeChange}%` },
-        { label: 'New Format', value: newStats.newFormat }
-    ];
+    const sizeComparisonDiv = document.createElement('div');
+    sizeComparisonDiv.className = 'conversion-card';
+    sizeComparisonDiv.innerHTML = `
+        <h3 class="conversion-title">Size Comparison</h3>
+        <div class="flex items-center justify-between">
+            <div class="text-center">
+                <p class="stats-label">Original</p>
+                <p class="conversion-value text-white">${formatSize(originalSize)}</p>
+            </div>
+            <div class="text-center">
+                <i class="fas fa-arrow-right ${arrowColor} text-2xl"></i>
+            </div>
+            <div class="text-center">
+                <p class="stats-label">New</p>
+                <p class="conversion-value text-white">${formatSize(newStats.zipSize)}</p>
+            </div>
+        </div>
+        <div class="mt-2 text-center">
+            <p class="text-sm">
+                <span class="font-semibold ${arrowColor}">${Math.abs(sizeChange)}% ${changeDescription}</span>
+                <span class="text-xl ${arrowColor}">${arrowDirection}</span>
+            </p>
+        </div>
+    `;
+    conversionStats.appendChild(sizeComparisonDiv);
 
-    stats.forEach((stat, index) => {
-        const div = document.createElement('div');
-        div.innerHTML = `
-            <p class="font-medium mb-1">${stat.label}</p>
-            <div class="text-lg ${stat.label === 'Size Comparison' ? '' : 'pl-4'}">${stat.value}</div>
-        `;
-        conversionStats.appendChild(div);
-        gsap.from(div, { opacity: 0, y: 20, duration: 0.5, delay: index * 0.1, ease: "power3.out" });
+    const formatDiv = document.createElement('div');
+    formatDiv.className = 'conversion-card mt-3';
+    formatDiv.innerHTML = `
+        <h3 class="conversion-title">New Format</h3>
+        <p class="conversion-value text-blue-400">${newStats.newFormat}</p>
+    `;
+    conversionStats.appendChild(formatDiv);
+
+    gsap.from(conversionStatsSection.children, { 
+        opacity: 0, 
+        y: 10, 
+        duration: 0.3, 
+        stagger: 0.1, 
+        ease: "power3.out" 
     });
-
-    gsap.from(conversionStatsSection, { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" });
 }
 
+/**
+ * Formats file size in bytes to a human-readable string
+ * @param {number} bytes - File size in bytes
+ * @returns {string} Formatted file size
+ */
 function formatSize(bytes) {
     if (bytes === 0) return '0 Bytes';
     const k = 1024;
@@ -203,8 +318,12 @@ function formatSize(bytes) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
+// Add click event listener to the convert button
 convertBtn.addEventListener('click', startConversion);
 
+/**
+ * Starts the image conversion process
+ */
 async function startConversion() {
     progressSection.classList.remove('hidden');
     convertBtn.disabled = true;
@@ -278,9 +397,10 @@ async function startConversion() {
             newFormat: format.split('/')[1].toUpperCase()
         };
 
-        // Update stats with new information
+// Update stats with new information
         updateConversionStats(originalTotalSize, newStats);
 
+        // Trigger the download of the zip file
         saveAs(content, 'converted_images.zip');
     } catch (error) {
         console.error('Error generating zip file:', error);
@@ -292,6 +412,12 @@ async function startConversion() {
     progressSection.classList.add('hidden');
 }
 
+/**
+ * Converts a single image file to the specified format
+ * @param {File} file - The image file to convert
+ * @param {string} format - The target format (e.g., 'image/jpeg')
+ * @returns {Promise<Blob>} A promise that resolves with the converted image blob
+ */
 async function convertImage(file, format) {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -308,6 +434,12 @@ async function convertImage(file, format) {
     });
 }
 
+/**
+ * Converts an SVG file to the specified format
+ * @param {File} file - The SVG file to convert
+ * @param {string} format - The target format (e.g., 'image/png')
+ * @returns {Promise<Blob>} A promise that resolves with the converted image blob
+ */
 async function convertSvg(file, format) {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -331,6 +463,11 @@ async function convertSvg(file, format) {
     });
 }
 
+/**
+ * Updates the progress bar and text
+ * @param {number} percentage - The progress percentage (0 to 2)
+ * @param {string} message - The progress message to display
+ */
 function updateProgress(percentage, message) {
     const percent = Math.min(Math.round(percentage * 100), 100);
     progressBar.style.width = `${percent}%`;
@@ -348,11 +485,16 @@ dropArea.addEventListener('mouseleave', () => {
 
 // Add a subtle animation to the page load
 window.addEventListener('load', () => {
-    gsap.from('main > *', { 
-        opacity: 0, 
-        y: 20, 
-        duration: 0.8, 
-        stagger: 0.2, 
-        ease: "power3.out"
-    });
+  gsap.from('main > *', { 
+      opacity: 0, 
+      y: 20, 
+      duration: 0.8, 
+      stagger: 0.2, 
+      ease: "power3.out"
+  });
+  // Update scroll button state after animations are complete
+  setTimeout(updateScrollButton, 1000);
 });
+
+// Call updateScrollButton immediately when the script runs
+updateScrollButton();

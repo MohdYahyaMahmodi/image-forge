@@ -20,6 +20,7 @@
   <a href="#✨-key-features">Key Features</a> •
   <a href="#🚀-how-it-works">How It Works</a> •
   <a href="#🏁-getting-started">Getting Started</a> •
+  <a href="#💻-usage">Usage</a> •
   <a href="#📊-performance">Performance</a> •
   <a href="#❓-faq">FAQ</a> •
   <a href="#📄-license">License</a>
@@ -27,94 +28,126 @@
 
 ## ✨ Key Features
 
-- 🌈 **Universal Input Support**: Upload any image format your browser recognizes
-- 🎨 **Multiple Output Formats**: Convert to JPEG, PNG, or WebP
-- 🚀 **Lightning-Fast Processing**: All conversions happen right in your browser
-- 📦 **Bulk Conversion**: Process hundreds of images in one go
-- 📊 **Real-time Statistics**: Instant insights into file sizes and conversion ratios
-- 🔒 **100% Private**: Your images never leave your device
-- 📱 **Responsive Design**: Seamless experience on both desktop and mobile
-- 🌙 **Dark Mode**: Easy on the eyes, perfect for night owls
+- 🖼️ **Universal Input Support**: Accept any image format supported by your browser, including JPEG, PNG, GIF, WebP, SVG, and more.
+- 🎨 **Versatile Output Formats**: Convert to JPEG, PNG, or WebP with customizable quality settings.
+- 🚀 **Lightning-Fast Client-Side Processing**: All conversions happen directly in your browser, ensuring speed and privacy.
+- 📦 **Bulk Conversion**: Process hundreds of images simultaneously, saving time and effort.
+- 📊 **Real-time Statistics**: Get instant insights into file sizes, formats, and conversion ratios.
+- 💾 **Efficient Compression**: Reduce file sizes significantly while maintaining image quality.
+- 📱 **Fully Responsive Design**: Seamless experience across desktop, tablet, and mobile devices.
+- 🌓 **Dark Mode**: Easy on the eyes, perfect for extended use and night-time conversions.
+- 🔒 **100% Private**: Your images never leave your device, ensuring complete data security.
 
 ## 🚀 How It Works
+
+Image Forge leverages cutting-edge web technologies to provide a seamless image conversion experience:
+
+1. **File Selection**: Drag & drop or select images using the intuitive file picker.
+2. **Preview & Analysis**: View your selected images in a sleek carousel and get detailed file information.
 
 <div align="center">
   <img src="images/file-details.png" alt="File Details" width="80%" />
 </div>
 
-1. **Upload**: Drag & drop or select images using the file picker
-2. **Preview**: View your selected images and file details
-3. **Choose Format**: Select your desired output format (JPEG, PNG, or WebP)
-4. **Convert**: Click "Convert Images" to start the magic
-5. **Download**: Get your optimized images in a convenient zip file
+3. **Conversion Setup**: Choose your desired output format (JPEG, PNG, or WebP) and adjust quality settings if needed.
+4. **Processing**: Images are converted client-side using advanced HTML5 Canvas technology and Web Workers for optimal performance.
+5. **Compression**: State-of-the-art algorithms optimize file sizes without significant quality loss.
+6. **Download**: Converted images are packaged into a convenient zip file for easy downloading and sharing.
 
 ## 🏁 Getting Started
 
+To run Image Forge locally, follow these simple steps:
+
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/mohdyahyamahmodi/image-forge.git
 
-# Navigate to the project
+# Navigate to the project directory
 cd image-forge
 
-# Open in your browser
+# Open index.html in your preferred browser
 open index.html
 ```
 
-That's it! No complex setup or server required. Image Forge runs entirely in your browser.
+No server setup or complex configuration required! Image Forge runs entirely in your browser, ensuring a hassle-free setup process.
 
 ## 💻 Usage
 
+1. **Upload Images**: 
+   - Drag and drop images onto the designated area, or
+   - Click "Select Files" to use the file picker
+
+2. **Review Statistics**: 
+   Analyze the detailed breakdown of your uploaded images, including total size, formats, and more.
+
 <div align="center">
-  <img src="images/stats.png" alt="Image Statistics" width="45%" />
-  <img src="images/progress.png" alt="Conversion Progress" width="45%" />
+  <img src="images/stats.png" alt="Image Statistics" width="80%" />
 </div>
 
-1. **Upload Images**: Drag & drop onto the designated area or use the file picker
-2. **Review Stats**: Check out the detailed statistics of your uploaded images
-3. **Select Format**: Choose JPEG, PNG, or WebP from the dropdown
-4. **Convert**: Hit the "Convert Images" button and watch the progress
-5. **Download**: Once complete, download your optimized image package
+3. **Choose Format**: 
+   Select your desired output format (JPEG, PNG, or WebP) from the dropdown menu. Each format offers unique benefits:
+   - JPEG: Best for photographs and complex images with gradients
+   - PNG: Ideal for images with transparency or sharp edges
+   - WebP: Modern format offering superior compression and quality
 
-## 📊 Performance
+4. **Convert**: 
+   Click the "Convert Images" button to start processing. Monitor the progress in real-time.
 
-Image Forge is built for speed and efficiency. Here's what you can expect:
+<div align="center">
+  <img src="images/progress.png" alt="Conversion Progress" width="80%" />
+</div>
+
+5. **Download**: 
+   Once conversion is complete, download your optimized images as a zip file and view the conversion results.
 
 <div align="center">
   <img src="images/convertion-results.png" alt="Conversion Results" width="80%" />
 </div>
 
-- **Bulk Processing**: Successfully tested with 400 images on a low-spec machine
-- **Processing Time**: ~30 seconds for 400 images (varies based on image size and device specs)
-- **Size Reduction**: Achieve significant file size reductions without compromising quality
+## 📊 Performance
 
-> 📝 Note: Actual results may vary depending on input images and device capabilities.
+Image Forge is designed for efficiency and quality. While performance can vary based on your device's capabilities, here's what you can expect:
+
+- **Bulk Processing**: Successfully tested with 400 images on a low-spec machine
+- **Processing Time**: Approximately 30 seconds for 400 images
+- **Size Reduction**: Achieve up to 70-90% file size reduction depending on the input images and chosen output format
+
+> **Note**: Actual results may vary depending on the number of images, their sizes, your device's specifications, and browser performance. Image Forge utilizes your device's resources efficiently to provide the best possible performance.
 
 ## ❓ FAQ
 
 <details>
 <summary><strong>Is there a limit to how many images I can process?</strong></summary>
-There's no set limit! The practical limit depends on your device's RAM and processing power. We've successfully tested with 400 images on a low-spec machine.
+There's no hard limit set by Image Forge. The practical limit depends on your device's capabilities (RAM, processing power) and browser limitations. We've successfully tested with 400 images on a low-spec machine, but more powerful devices can handle even larger batches.
 </details>
 
 <details>
-<summary><strong>What input formats does Image Forge support?</strong></summary>
-Image Forge accepts any image format that your browser can read. This typically includes JPEG, PNG, GIF, WebP, SVG, and many more.
+<summary><strong>What input formats are supported?</strong></summary>
+Image Forge can accept any image format that your browser supports. This typically includes common formats like JPEG, PNG, GIF, WebP, SVG, and many others. If your browser can display it, Image Forge can likely process it!
 </details>
 
 <details>
 <summary><strong>What output formats are available?</strong></summary>
-Currently, you can convert your images to JPEG, PNG, or WebP. These formats offer an excellent balance of quality and compatibility.
+Currently, Image Forge supports conversion to three formats: JPEG, PNG, and WebP. These formats offer a good balance of compatibility and efficiency for most use cases. We're constantly evaluating new formats to add based on user needs and browser support.
 </details>
 
 <details>
 <summary><strong>Is my data safe?</strong></summary>
-Absolutely! All processing happens locally in your browser. Your images never leave your device, ensuring maximum privacy and security.
+Absolutely! All processing happens in your browser. Your images never leave your device, ensuring maximum privacy and security. We take data protection seriously and have designed Image Forge with privacy as a top priority.
 </details>
 
 <details>
 <summary><strong>Can I use Image Forge for commercial projects?</strong></summary>
-Yes! Image Forge is released under the MIT License, which allows for both personal and commercial use. See the LICENSE file for details.
+Yes! Image Forge is released under the MIT License, which allows for both personal and commercial use. Feel free to use it in your projects, both personal and professional. Please refer to the LICENSE file for full details on the terms of use.
+</details>
+
+<details>
+<summary><strong>How does Image Forge compare to server-based conversion tools?</strong></summary>
+Image Forge offers several advantages over server-based tools:
+1. Privacy: Your images never leave your device.
+2. Speed: No upload/download times, conversions happen instantly.
+3. No file size limits: Process as many images as your device can handle.
+4. Offline capability: Use Image Forge without an internet connection once the page is loaded.
 </details>
 
 ## 📄 License

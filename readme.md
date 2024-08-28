@@ -22,6 +22,7 @@
   <a href="#🏁-getting-started">Getting Started</a> •
   <a href="#💻-usage">Usage</a> •
   <a href="#📊-performance">Performance</a> •
+  <a href="#🔮-upcoming-features">Upcoming Features</a> •
   <a href="#❓-faq">FAQ</a> •
   <a href="#📄-license">License</a>
 </p>
@@ -114,6 +115,21 @@ Image Forge is designed for efficiency and quality. While performance can vary b
 
 > **Note**: Actual results may vary depending on the number of images, their sizes, your device's specifications, and browser performance. Image Forge utilizes your device's resources efficiently to provide the best possible performance.
 
+## 🔮 Upcoming Features
+
+We're constantly working to improve Image Forge and add new capabilities. Here's a sneak peek at some exciting features coming soon:
+
+- 🌈 **Image Filters**: Apply a variety of filters to enhance or stylize your images before conversion.
+- 🔄 **Rotate and Flip**: Easily adjust image orientation with rotation and flip tools.
+- 📐 **Resize Options**: Scale your images up or down to specific dimensions or percentages.
+- 🔍 **AI-Powered Upscaling**: Enhance image resolution using cutting-edge machine learning algorithms.
+- 📦 **Additional Output Formats**: Support for more specialized formats like AVIF, HEIF, and lossless WebP.
+- 🎨 **Batch Editing**: Apply the same edits to multiple images simultaneously.
+- 📊 **Advanced Compression Settings**: Fine-tune compression levels for each format to balance quality and file size.
+- 🖼️ **Custom Watermarking**: Add text or image watermarks to your converted images.
+
+Stay tuned for these exciting enhancements that will make Image Forge even more powerful and versatile!
+
 ## ❓ FAQ
 
 <details>
@@ -154,10 +170,18 @@ Image Forge offers several advantages over server-based tools:
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## 🤝 Contributing
+
+Contributions to Image Forge are always welcome! Whether it's bug fixes, new features, or improvements to the documentation, your help is appreciated.
+
+Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+
+We look forward to your contributions!
+
 ---
 
 <div align="center">
-  Crafted with 💻 by <a href="https://github.com/mohdyahyamahmodi">Mohd Mahmodi</a>
+  Made by <a href="https://github.com/mohdyahyamahmodi">Mohd Mahmodi</a>
 </div>
 
 <div align="center">

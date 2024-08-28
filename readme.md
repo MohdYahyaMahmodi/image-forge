@@ -5,6 +5,19 @@
 </div>
 
 <p align="center">
+  <a href="https://mohdyahyamahmodi.github.io/image-forge/" target="_blank"><strong>Demo Site</strong></a> |
+  <a href="#key-features">Features</a> |
+  <a href="#how-it-works">How It Works</a> |
+  <a href="#getting-started">Getting Started</a> |
+  <a href="#usage">Usage</a> |
+  <a href="#performance">Performance</a> |
+  <a href="#upcoming-features">Roadmap</a> |
+  <a href="#faq">FAQ</a> |
+  <a href="#license">License</a> |
+  <a href="#contributing">Contributing</a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" alt="Version" />
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
   <a href="https://twitter.com/mohdmahmodi" target="_blank">
@@ -13,33 +26,24 @@
 </p>
 
 <p align="center">
-  <b>🔥 Powerful Client-Side Image Conversion and Optimization Tool 🔥</b>
+  <strong>Advanced Client-Side Image Conversion and Optimization Tool</strong>
 </p>
 
-<p align="center">
-  <a href="#✨-key-features">Key Features</a> •
-  <a href="#🚀-how-it-works">How It Works</a> •
-  <a href="#🏁-getting-started">Getting Started</a> •
-  <a href="#💻-usage">Usage</a> •
-  <a href="#📊-performance">Performance</a> •
-  <a href="#🔮-upcoming-features">Upcoming Features</a> •
-  <a href="#❓-faq">FAQ</a> •
-  <a href="#📄-license">License</a>
-</p>
+---
 
-## ✨ Key Features
+## Key Features
 
-- 🖼️ **Universal Input Support**: Accept any image format supported by your browser, including JPEG, PNG, GIF, WebP, SVG, and more.
-- 🎨 **Versatile Output Formats**: Convert to JPEG, PNG, or WebP with customizable quality settings.
-- 🚀 **Lightning-Fast Client-Side Processing**: All conversions happen directly in your browser, ensuring speed and privacy.
-- 📦 **Bulk Conversion**: Process hundreds of images simultaneously, saving time and effort.
-- 📊 **Real-time Statistics**: Get instant insights into file sizes, formats, and conversion ratios.
-- 💾 **Efficient Compression**: Reduce file sizes significantly while maintaining image quality.
-- 📱 **Fully Responsive Design**: Seamless experience across desktop, tablet, and mobile devices.
-- 🌓 **Dark Mode**: Easy on the eyes, perfect for extended use and night-time conversions.
-- 🔒 **100% Private**: Your images never leave your device, ensuring complete data security.
+- **Universal Input Support**: Accept any image format supported by your browser, including JPEG, PNG, GIF, WebP, SVG, and more.
+- **Versatile Output Formats**: Convert to JPEG, PNG, or WebP with customizable quality settings.
+- **Client-Side Processing**: All conversions happen directly in your browser, ensuring speed and privacy.
+- **Bulk Conversion**: Process hundreds of images simultaneously, saving time and effort.
+- **Real-time Statistics**: Get instant insights into file sizes, formats, and conversion ratios.
+- **Efficient Compression**: Reduce file sizes significantly while maintaining image quality.
+- **Responsive Design**: Seamless experience across desktop, tablet, and mobile devices.
+- **Dark Mode**: Optimized for extended use and night-time conversions.
+- **Privacy-Focused**: Your images never leave your device, ensuring complete data security.
 
-## 🚀 How It Works
+## How It Works
 
 Image Forge leverages cutting-edge web technologies to provide a seamless image conversion experience:
 
@@ -55,9 +59,9 @@ Image Forge leverages cutting-edge web technologies to provide a seamless image 
 5. **Compression**: State-of-the-art algorithms optimize file sizes without significant quality loss.
 6. **Download**: Converted images are packaged into a convenient zip file for easy downloading and sharing.
 
-## 🏁 Getting Started
+## Getting Started
 
-To run Image Forge locally, follow these simple steps:
+To run Image Forge locally, follow these steps:
 
 ```bash
 # Clone the repository
@@ -70,9 +74,9 @@ cd image-forge
 open index.html
 ```
 
-No server setup or complex configuration required! Image Forge runs entirely in your browser, ensuring a hassle-free setup process.
+No server setup or complex configuration required. Image Forge runs entirely in your browser, ensuring a hassle-free setup process.
 
-## 💻 Usage
+## Usage
 
 1. **Upload Images**: 
    - Drag and drop images onto the designated area, or
@@ -105,7 +109,7 @@ No server setup or complex configuration required! Image Forge runs entirely in 
   <img src="images/convertion-results.png" alt="Conversion Results" width="80%" />
 </div>
 
-## 📊 Performance
+## Performance
 
 Image Forge is designed for efficiency and quality. While performance can vary based on your device's capabilities, here's what you can expect:
 
@@ -115,22 +119,20 @@ Image Forge is designed for efficiency and quality. While performance can vary b
 
 > **Note**: Actual results may vary depending on the number of images, their sizes, your device's specifications, and browser performance. Image Forge utilizes your device's resources efficiently to provide the best possible performance.
 
-## 🔮 Upcoming Features
+## Upcoming Features
 
-We're constantly working to improve Image Forge and add new capabilities. Here's a sneak peek at some exciting features coming soon:
+We're constantly working to improve Image Forge and add new capabilities. Here's a preview of some exciting features in development:
 
-- 🌈 **Image Filters**: Apply a variety of filters to enhance or stylize your images before conversion.
-- 🔄 **Rotate and Flip**: Easily adjust image orientation with rotation and flip tools.
-- 📐 **Resize Options**: Scale your images up or down to specific dimensions or percentages.
-- 🔍 **AI-Powered Upscaling**: Enhance image resolution using cutting-edge machine learning algorithms.
-- 📦 **Additional Output Formats**: Support for more specialized formats like AVIF, HEIF, and lossless WebP.
-- 🎨 **Batch Editing**: Apply the same edits to multiple images simultaneously.
-- 📊 **Advanced Compression Settings**: Fine-tune compression levels for each format to balance quality and file size.
-- 🖼️ **Custom Watermarking**: Add text or image watermarks to your converted images.
+- **Image Filters**: Apply a variety of filters to enhance or stylize your images before conversion.
+- **Rotate and Flip**: Easily adjust image orientation with rotation and flip tools.
+- **Resize Options**: Scale your images up or down to specific dimensions or percentages.
+- **AI-Powered Upscaling**: Enhance image resolution using cutting-edge machine learning algorithms.
+- **Additional Output Formats**: Support for more specialized formats like AVIF, HEIF, and lossless WebP.
+- **Batch Editing**: Apply the same edits to multiple images simultaneously.
+- **Advanced Compression Settings**: Fine-tune compression levels for each format to balance quality and file size.
+- **Custom Watermarking**: Add text or image watermarks to your converted images.
 
-Stay tuned for these exciting enhancements that will make Image Forge even more powerful and versatile!
-
-## ❓ FAQ
+## FAQ
 
 <details>
 <summary><strong>Is there a limit to how many images I can process?</strong></summary>
@@ -139,7 +141,7 @@ There's no hard limit set by Image Forge. The practical limit depends on your de
 
 <details>
 <summary><strong>What input formats are supported?</strong></summary>
-Image Forge can accept any image format that your browser supports. This typically includes common formats like JPEG, PNG, GIF, WebP, SVG, and many others. If your browser can display it, Image Forge can likely process it!
+Image Forge can accept any image format that your browser supports. This typically includes common formats like JPEG, PNG, GIF, WebP, SVG, and many others. If your browser can display it, Image Forge can likely process it.
 </details>
 
 <details>
@@ -149,12 +151,12 @@ Currently, Image Forge supports conversion to three formats: JPEG, PNG, and WebP
 
 <details>
 <summary><strong>Is my data safe?</strong></summary>
-Absolutely! All processing happens in your browser. Your images never leave your device, ensuring maximum privacy and security. We take data protection seriously and have designed Image Forge with privacy as a top priority.
+Absolutely. All processing happens in your browser. Your images never leave your device, ensuring maximum privacy and security. We take data protection seriously and have designed Image Forge with privacy as a top priority.
 </details>
 
 <details>
 <summary><strong>Can I use Image Forge for commercial projects?</strong></summary>
-Yes! Image Forge is released under the MIT License, which allows for both personal and commercial use. Feel free to use it in your projects, both personal and professional. Please refer to the LICENSE file for full details on the terms of use.
+Yes. Image Forge is released under the MIT License, which allows for both personal and commercial use. Feel free to use it in your projects, both personal and professional. Please refer to the LICENSE file for full details on the terms of use.
 </details>
 
 <details>
@@ -166,13 +168,13 @@ Image Forge offers several advantages over server-based tools:
 4. Offline capability: Use Image Forge without an internet connection once the page is loaded.
 </details>
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 🤝 Contributing
+## Contributing
 
-Contributions to Image Forge are always welcome! Whether it's bug fixes, new features, or improvements to the documentation, your help is appreciated.
+Contributions to Image Forge are always welcome. Whether it's bug fixes, new features, or improvements to the documentation, your help is appreciated.
 
 Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
 
@@ -181,7 +183,7 @@ We look forward to your contributions!
 ---
 
 <div align="center">
-  Made by <a href="https://github.com/mohdyahyamahmodi">Mohd Mahmodi</a>
+  Developed by <a href="https://github.com/mohdyahyamahmodi">Mohd Mahmodi</a>
 </div>
 
 <div align="center">

@@ -1,6 +1,6 @@
 /**
  * Image Forge: Advanced Image Conversion Tool
- * Author: Mohd Mahmodi
+ * Author: Mohd Y. Mahmodi
  * License: MIT
  *
  * This script handles the client-side functionality of the Image Forge tool,
